@@ -97,33 +97,66 @@
     padding: 10px;
     border-top: 1px solid rgba(201, 169, 233, 0.2);
     display: flex;
-    gap: 5px;
-    justify-content: space-evenly;
+    gap: 8px;
+    justify-content: space-between;
 }
 
     .album-actions .btn {
-        width: auto !important;
-        padding: 6px 8px !important;
-        min-width: auto !important;
-        flex: 0 1 auto;
+        flex: 1;
+        padding: 8px 6px !important;
         font-size: 0.75rem !important;
         letter-spacing: 0 !important;
+        white-space: nowrap;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
     }
 
         .album-actions .btn i {
             font-size: 0.9rem;
-
         }
 
     .album-actions form {
-        display: inline;
+        flex: 1;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        border: none; /* Quita el borde del form */
+        background: transparent; /* Quita cualquier fondo */
     }
 
         .album-actions form button {
-            width: auto !important;
-            padding: 6px 8px !important;
-            min-width: auto !important;
+            width: 100% !important;
+            padding: 8px 6px !important;
+            font-size: 0.75rem !important;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            cursor: inherit; /* Hereda el cursor del body */
         }
+
+            /* Asegura que el cursor personalizado funcione en el botón */
+            .album-actions form button:hover {
+                cursor: inherit;
+            }
+/* Responsivo para pantallas pequeñas */
+@media (max-width: 768px) {
+    .album-actions {
+        gap: 6px;
+    }
+
+        .album-actions .btn {
+            font-size: 0.7rem !important;
+            padding: 6px 8px !important;
+            min-width: 60px;
+        }
+}
+
+
+
 
 /* Responsivo */
 @media (max-width: 768px) {

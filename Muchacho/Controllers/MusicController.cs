@@ -131,7 +131,6 @@ namespace Muchacho.Controllers
 
             try
             {
-                // CAMBIO CRÍTICO: coverURL en minúsculas en la consulta SQL
                 await _context.Database.ExecuteSqlRawAsync(
                     "UPDATE discos SET artist_id = {0}, name = {1}, year = {2}, coverurl = {3}, price = {4} WHERE id = {5}",
                     artistId, name, year, coverURL ?? "", price, id);
@@ -238,8 +237,8 @@ namespace Muchacho.Controllers
 
                 // Registrar el pedido primero
                 await _context.Database.ExecuteSqlRawAsync(
-                    "INSERT INTO pedidos (idusuario, fecha) VALUES ({0}, {1})",
-                    usuario.Id, DateTime.Now);
+                    "INSERT INTO usuarios_pedidos (idusuario, fecha) VALUES ({0}, {1})",
+                    usuario.Id, DateTime.UtcNow);
 
                 // Registrar la venta
                 await _context.Database.ExecuteSqlRawAsync(
