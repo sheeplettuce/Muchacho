@@ -1,5 +1,5 @@
 ﻿body {
-    background: url('/images/background/pattern.png');
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.45)), url('/images/background/pattern.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
