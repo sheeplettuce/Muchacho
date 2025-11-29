@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "Mensaje";
+}
+
+<form asp-action="Enviar" method="post" class="form">
+    @Html.AntiForgeryToken()
+
+    <div class="saleeditcontainer">
+
+        <div class="container">
+            <h2>Formulario de Contacto</h2>
+            <label for="Nombre" class="form-label">Nombre:</label>
+            <input type="text" class="form-control" id="Nombre" name="Nombre" required />
+ 
+        </div>
+
+        <div class="container">
+            <label for="Correo" class="form-label">Correo electrónico:</label>
+            <input type="email" class="form-control" id="Correo" name="Correo" required EmailAddress />
+
+        </div>
+
+        <div class="container">
+            <label for="Mensaje" class="form-label">Mensaje:</label>
+            <textarea class="form-control" id="Mensaje" name="Mensaje" rows="4" required StringLength="250"></textarea>
+
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary w-25">Enviar</button>
+            <p></p>
+        </div>
+
+    </div>
+</form>
+
+@if (ViewBag.Mensaje != null)
+{
+    <div style="position: fixed; top: 20px; left: 50%; transform: translateX(-50%); z-index: 1050; width: 250px;">
+        <div class="d-flex justify-content-center mb-3">
+            <div class="alert alert-success alert-dismissible fade show p-2 text-center"
+                 role="alert"
+                 style="width: 200px; border-radius: 0.5rem;">
+                @ViewBag.Mensaje
+                <button type="button" class="btn-close btn-sm" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+            </div>
+        </div>
+    </div>
+}

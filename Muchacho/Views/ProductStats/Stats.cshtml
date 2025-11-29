@@ -1,0 +1,80 @@
+﻿@{
+    ViewData["Title"] = "Estadísticas de Albums";
+}
+
+<div class="container">
+
+    <div class="form">
+        <a asp-controller="Music" asp-action="Index" class="btn btn-outline-warning">
+            Volver
+        </a>
+        <p></p>
+
+    </div>
+    <h2 class="mb-4">Estadísticas de Albums</h2>
+
+    
+
+    <!-- Resumen de estadísticas -->
+    <div class="saleeditcontainer">
+        <div class="card-body">
+            <h5 class="card-title">Resumen General</h5>
+            <ul class="list-unstyled">
+                <li><strong>Total de álbumes:</strong> @ViewBag.TotalAlbums</li>
+                <li><strong>Precio promedio:</strong> $@ViewBag.PrecioPromedio.ToString("F2")</li>
+                <li><strong>Total de precios:</strong> $@ViewBag.PrecioTotal.ToString("F2")</li>
+
+            </ul>
+
+
+            <h6 class="mt-3">Álbumes por período (cada 5 años):</h6>
+            <ul class="list-unstyled">
+                @foreach (var periodo in ViewBag.AlbumsPorPeriodo)
+                {
+                    <li>@periodo.Key: <strong>@periodo.Value álbumes</strong></li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <!-- Lista de álbumes -->
+    <h4 class="mb-3">Álbumes (ordenados por fecha de lanzamiento)</h4>
+    <div class="list-group">
+        @foreach (var album in ViewBag.Albums)
+        {
+            <div class="list-group-item list-group-item-action">
+                <div class="d-flex align-items-center">
+                    <img src="@album.CoverUrl"
+                         alt="@album.Album"
+                         class="img-thumbnail me-3"
+                         style="width: 60px; height: 60px; object-fit: cover;">
+
+                    <div class="flex-grow-1">
+                        <h6 class="mb-1">@album.Album</h6>
+                        <p class="mb-1 text-muted small">
+                            <strong>@album.Artist</strong> • @album.Year
+                        </p>
+                    </div>
+
+                    <div class="text-end">
+                        <span class="badge bg-success">$@album.Price.ToString("F2")</span>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<style>
+    .list-group-item {
+        transition: background-color 0.2s;
+    }
+
+        .list-group-item:hover {
+            background-color: #A1A1A1;
+        }
+
+    .img-thumbnail {
+        border-radius: 4px;
+    }
+</style>

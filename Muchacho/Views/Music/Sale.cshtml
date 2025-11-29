@@ -1,0 +1,58 @@
+﻿@model Disco
+@{
+    ViewData["Title"] = "Realizar Venta";
+}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="saleeditcontainer">
+            <div class="form">
+                <div class="form">
+                    <h3 class="mb-0">Realizar Venta</h3>
+                </div>
+                <div class="saleeditcontainer">
+                    <div class="row mb-4">
+                        <div class="col-md-4">
+                            @if (!string.IsNullOrEmpty(Model.CoverURL))
+                            {
+                                <img src="@Model.CoverURL" alt="@Model.Name" class="img-fluid rounded shadow-sm">
+                            }
+                            else
+                            {
+                                <div class="bg-light p-5 rounded text-center">
+                                    <i class="bi bi-music-note-beamed" style="font-size: 4rem;"></i>
+                                </div>
+                            }
+                        </div>
+                        <div class="col-md-8">
+                            <h4>@Model.Name</h4>
+                            <p class="text-muted mb-1"><strong>Artista:</strong> @ViewBag.ArtistName</p>
+                            <p class="text-muted mb-1"><strong>Año:</strong> @Model.Year</p>
+                            <p class="mb-0"><strong class="text-success" style="font-size: 1.5rem;">$@Model.Price MXN</strong></p>
+                        </div>
+                    </div>
+                    <hr>
+                    <form asp-action="Sale" asp-route-id="@Model.Id" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <div class="alert alert-info">
+                            <i class="bi bi-info-circle"></i> <strong>Nota:</strong> Esta venta se registrará automáticamente a tu nombre de usuario.
+                        </div>
+
+                        <div class="alert alert-success">
+                            <i class="bi bi-cash-coin"></i> <strong>Total a cobrar:</strong> $@Model.Price MXN
+                        </div>
+
+                        <div class="d-flex gap-2">
+                            <button type="submit" class="btn btn-success flex-fill">
+                                <i class="bi bi-check2-circle"></i> Registrar Venta
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary flex-fill">
+                                <i class="bi bi-x-circle"></i> Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

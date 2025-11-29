@@ -1,0 +1,41 @@
+﻿.dashboard-card {
+  background: rgba(25, 25, 25, 0.9);
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(201, 169, 233, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 16px rgba(159, 14, 14, 0.4);
+}
+
+.card-icon {
+  font-size: 3rem;
+  color: #9f0e0e;
+  margin-bottom: 20px;
+}
+
+.dashboard-card h3 {
+  color: #e4e4e4;
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.dashboard-card p {
+  color: #b8b8b8;
+  margin-bottom: 20px;
+}
+
+.dashboard-card .btn {
+  width: 60% !important;
+}
+
+button, a:hover {
+    cursor: url('../images/Help.cur'), pointer;
+}

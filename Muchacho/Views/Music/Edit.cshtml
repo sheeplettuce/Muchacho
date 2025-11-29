@@ -1,0 +1,99 @@
+﻿@model Disco
+@{
+    ViewData["Title"] = "Editar Álbum";
+}
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/music.css" asp-append-version="true" />
+</head>
+
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="album-card">
+                <div class="album-info" style="padding: 25px;">
+                    <h3 class="album-title" style="font-size: 1.5rem; margin-bottom: 20px; white-space: normal;">
+                        Editar Álbum
+                    </h3>
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger">
+                            <strong>Error:</strong> @ViewBag.Error
+                        </div>
+                    }
+
+                    <form asp-action="Edit" asp-controller="Music" asp-route-id="@Model.Id" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <input type="hidden" name="id" value="@Model.Id" />
+
+                        <div class="mb-3">
+                            <label for="artistId" class="form-label" style="color: #e4e4e4;">Artista *</label>
+                            <select class="form-select" id="artistId" name="artistId" required
+                                    style="background: rgba(15, 15, 15, 0.8); color: #e4e4e4; border: 1px solid rgba(201, 169, 233, 0.2);">
+                                <option value="">-- Selecciona un artista --</option>
+                                @if (ViewBag.Artistas != null)
+                                {
+                                    @foreach (var artista in ViewBag.Artistas)
+                                    {
+                                        if (artista.Id == Model.ArtistId)
+                                        {
+                                            <option value="@artista.Id" selected>@artista.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@artista.Id">@artista.Name</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                            <small class="album-year">Artista actual ID: @Model.ArtistId</small>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="name" class="form-label" style="color: #e4e4e4;">Nombre del Álbum *</label>
+                            <input type="text" class="form-control" id="name" name="name" value="@Model.Name" required
+                                   style="background: rgba(15, 15, 15, 0.8); color: #e4e4e4; border: 1px solid rgba(201, 169, 233, 0.2);">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="year" class="form-label" style="color: #e4e4e4;">Año</label>
+                            <input type="number" class="form-control" id="year" name="year" value="@Model.Year" min="1900" max="2100"
+                                   style="background: rgba(15, 15, 15, 0.8); color: #e4e4e4; border: 1px solid rgba(201, 169, 233, 0.2);">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="coverURL" class="form-label" style="color: #e4e4e4;">URL de Portada</label>
+                            <input type="text" class="form-control" id="coverURL" name="coverURL" value="@Model.CoverURL"
+                                   style="background: rgba(15, 15, 15, 0.8); color: #e4e4e4; border: 1px solid rgba(201, 169, 233, 0.2);">
+                            @if (!string.IsNullOrEmpty(Model.CoverURL))
+                            {
+                                <div class="mt-2 album-cover-container" style="max-width: 150px; aspect-ratio: 1;">
+                                    <img src="@Model.CoverURL" alt="Preview" class="album-cover">
+                                </div>
+                            }
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="price" class="form-label" style="color: #e4e4e4;">Precio (MXN) *</label>
+                            <input type="number" class="form-control" id="price" name="price" value="@Model.Price" step="0.01" min="0" required
+                                   style="background: rgba(15, 15, 15, 0.8); color: #e4e4e4; border: 1px solid rgba(201, 169, 233, 0.2);">
+                        </div>
+
+                        <div style="border-top: 1px solid rgba(201, 169, 233, 0.2); margin: 20px 0;"></div>
+
+                        <div class="album-actions" style="border-top: none; padding: 0; flex-direction: column;">
+                            <button type="submit" class="btn btn-warning" style="width: 100% !important; margin-bottom: 10px;">
+                                <i class="bi bi-check-circle"></i> Actualizar Álbum
+                            </button>
+                            <a asp-action="Index" class="btn btn-secondary" style="width: 100% !important;">
+                                <i class="bi bi-x-circle"></i> Cancelar
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

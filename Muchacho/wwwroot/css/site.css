@@ -1,0 +1,283 @@
+/*
+    El set de cursores que se usan en esta aplicación
+    fueron creados por wadlo
+http://wadlo.deviantart.com/
+
+    Downloaded @ 
+http://www.cursors-4u.com/cursor/2012/02/05/zombie-hand-set.html
+*/
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+button, a:hover {
+    cursor: url('../images/Help.cur'), pointer;
+}
+
+
+
+body {
+    cursor: url('../images/Normal.cur'), auto;
+    font-family: Franklin Gothic Medium;
+    background: url('/images/background/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #e4e4e4;
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+
+.navbar {
+    background: linear-gradient(135deg, #940a0a 0%, #1a1a1a 100%);
+    font-family: "Microsoft Yi Baiti", sans-serif;
+    color: white;
+    border-radius: 12px;
+    padding: 10px 20px;
+    border-bottom: none !important;
+}
+
+    .navbar .nav-link,
+    .navbar .navbar-brand {
+        color: white !important;
+    }
+
+        .navbar .nav-link:hover,
+        .navbar .navbar-brand:hover {
+            color: #ffb380 !important;
+            transform: scale(1.1); 
+            transition: all 0.2s ease-in-out; 
+        }
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.footer {
+    margin: 0 auto;
+    padding: 10px;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    color: #9f0e0e;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+h3 {
+    text-align: center;
+    color: #9f0e0e;
+    margin-top: 30px;
+    font-size: 1.5rem;
+}
+h4 {
+    text-align: center;
+    color: #e4e4e4;
+    margin-top: 30px;
+ 
+}
+
+/*login*/
+
+.login-container {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.login-card {
+    background: black;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 40px 30px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+}
+
+    .login-card h1 {
+        margin-bottom: 10px;
+        color: white;
+    }
+
+    .login-card p {
+        color: #666;
+        margin-bottom: 20px;
+    }
+
+    .login-card img {
+        height: 100px;
+        margin: 20px 0;
+    }
+
+    .login-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+    .button-group .btn {
+        width: 100%;
+        padding: 12px;
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+
+form {
+    background: rgba(25, 25, 25, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    max-width: 450px;
+    margin: 0 auto;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 169, 233, 0.2);
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #b8b8b8;
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-align: left;
+}
+
+button,
+input[type="submit"],
+.btn {
+    width: 80%;
+    padding: 10px 15px;
+    background: linear-gradient(135deg, #9f0e0e 0%, rgba(0, 0, 0, 0.1) 100%);
+    color: black;
+    border: none;
+    border-radius: 8px;
+    font-size: .9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+p[style*="color:red"],
+.error-message {
+    background: rgba(255, 140, 140, 0.1);
+    border-left: 4px solid #ffb3b3;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 5px;
+    color: #ffb3b3 !important;
+    text-align: center;
+}
+
+.success-message {
+    background: rgba(169, 223, 191, 0.1);
+    border-left: 4px solid #a9dfbf;
+    padding: 15px;
+    margin: 20px auto;
+    max-width: 500px;
+    border-radius: 5px;
+    color: #a9dfbf;
+    text-align: center;
+}
+
+
+.saleeditcontainer {
+    background: rgba(25, 25, 25, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(201, 169, 233, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+input[type="number"],
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+textarea {
+    width: 100%;
+    padding: 3px 12px;
+    margin-bottom: 10px;
+    background: #0f0f0f;
+    border: 2px solid #2a2a2a;
+    border-radius: 8px;
+    color: #e4e4e4;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+    input[type="number"]:focus,
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    select:focus,
+    textarea:focus {
+        outline: none;
+        border-color: #c9a9e9;
+        box-shadow: 0 0 15px rgba(201, 169, 233, 0.3);
+        background: #141414;
+    }
+
+select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23c9a9e9' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    padding-right: 40px;
+}
+
+    select option {
+        background: #1a1a1a;
+        color: #e4e4e4;
+    }
+
+
