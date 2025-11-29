@@ -3,6 +3,8 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed; /* Esto fija el fondo */
+    min-height: 100vh; /* Asegura que el body tenga altura mínima */
 }
 /* Estilos específicos para las tarjetas de álbumes */
 .album-card {
@@ -13,6 +15,16 @@
     border: 1px solid rgba(201, 169, 233, 0.2);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.search {
+    backdrop-filter: blur(10px);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px rgba(201, 169, 233, 0.2);
+    border-radius: 8px;
     height: 100%;
     display: flex;
     flex-direction: column;

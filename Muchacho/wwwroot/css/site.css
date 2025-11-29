@@ -39,6 +39,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed; /* AGREGADO: Fija el fondo */
     color: #e4e4e4;
     min-height: 100vh;
     padding: 20px;

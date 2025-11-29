@@ -41,13 +41,14 @@ namespace Muchacho.Controllers
                  .FromSqlRaw("SELECT * FROM usuarios WHERE email = {0}", email)
                  .FirstOrDefaultAsync();
 
-            if (user != null)
+            // AQUÍ ESTÁ EL FIX: Verificar que el usuario existe Y que la contraseña coincide
+            if (user != null && user.Password == password)
             {
                 var claims = new List<Claim>
-                {
-                    new Claim(ClaimTypes.Email, user.Email),
-                    new Claim(ClaimTypes.Name, user.Email)
-                };
+        {
+            new Claim(ClaimTypes.Email, user.Email),
+            new Claim(ClaimTypes.Name, user.Name) // Mejor usar el nombre real
+        };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
@@ -61,7 +62,6 @@ namespace Muchacho.Controllers
             ViewBag.Error = "Email o contraseña incorrectos";
             return View();
         }
-
         // GET: Account/Register
         public IActionResult Register()
         {
